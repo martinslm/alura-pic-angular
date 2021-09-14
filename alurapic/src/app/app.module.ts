@@ -2,20 +2,19 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { PhotoListComponent } from './photos/photo-list/photo-list.component';
+import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PhotoComponent,
-    PhotoListComponent
+    AppComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    PhotosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
