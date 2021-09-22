@@ -8,5 +8,5 @@
             (keyup)="onKeyUp($event.target)">
     </form>
 </div>
-<app-photos [photos]="photos">
+<app-photos [photos]="photos | filterByDescription: filter">
 </app-photos>
