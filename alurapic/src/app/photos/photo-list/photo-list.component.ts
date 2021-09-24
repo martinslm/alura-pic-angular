@@ -14,7 +14,7 @@ export class PhotoListComponent implements OnInit, OnDestroy {
   photos: Photo[] = [];
   filter: string = '';
   debounce: Subject<string> = new Subject<string>();
-  hasMore: boolean = false;
+  hasMore: boolean = true;
   currentPage: number = 1;
   username: string = '';
   constructor(private activatedRoute: ActivatedRoute,
@@ -46,11 +46,8 @@ export class PhotoListComponent implements OnInit, OnDestroy {
       .listFromUserPaginated(this.username, ++this.currentPage)
       .subscribe(photos => {
         this.photos = this.photos.concat(photos)
+        if(!photos.length)this.hasMore = false
       });
-
-      if(!this.photos.length){
-        this.hasMore = false
-      }
     }
   }
 
